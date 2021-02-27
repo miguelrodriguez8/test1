@@ -1,3 +1,5 @@
 __pycache__/*
 *.__pycache__vs-code/*
 venv/*
+db.sqlite3
+.vs-code/*
