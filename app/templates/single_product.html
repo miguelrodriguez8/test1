@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block content %}
+<div class="container">
+    <div class="page-header">
+        <h1>{{ product["name"] }}</h1>
+        <img class="pictures" src="{{ url_for('static', filename='prod_' + product['name'] + '.jpeg') }} " alt="Image not found">
+        <p>$ {{ product["price"] }}</p>
+        <p>{{ product["description"] }}</p>
+    </div>
+    <br>
+    <div class="col-sm-6">
+        {% if message %}
+            <p class="message">{{ message | safe }}</p>
+        {% endif %}
+        <form action="/submit" method="POST">
+            <div class="form-group">
+              <h3>Please rate this item</h3>
+              <input type="radio" name="rating" value="1" /> 1
+              <input type="radio" name="rating" value="2" /> 2
+              <input type="radio" name="rating" value="3" /> 3
+              <input type="radio" name="rating" value="4" /> 4
+              <input type="radio" name="rating" value="5" checked /> 5
+            </div>
+            <div class="form-group">
+                <h3>Your Name</h3>
+                <input
+                  type="text"
+                />
+              </div>
+            <div class="form-group">
+              <h3>Leave a review</h3>
+              <textarea
+                review="review"
+                id=""
+                cols="30"
+                rows="10"
+                placeholder="Tell us what you liked or did not like"
+              ></textarea>
+            </div>
+            <input type="submit" href="/submit" value="Submit" class="btn" />
+          </form>
+    </div>
+</div>
+{% endblock %}

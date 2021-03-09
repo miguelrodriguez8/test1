@@ -1,1 +1,9 @@
-<h1>Hello, {{ name }}!</h1> 
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <div class="page-header">
+        <h2 style="margin: 50px">Hello, my name is {{ first_name }} {{ last_name }} and I enjoy {{ hobbies }}</h2>
+    </div>
+</div>
+{% endblock %}
